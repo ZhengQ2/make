@@ -252,6 +252,11 @@ static char *sync_mutex = NULL;
 double max_load_average = -1.0;
 double default_load_average = -1.0;
 
+/* Maximum cpu pressure at which multiple jobs will be run.
+   Non-positive values mean unlimited */
+double max_cpu_pressure = -1.0;
+double default_cpu_pressure = -1.0;
+
 /* List of directories given with -C switches.  */
 
 static struct stringlist *directories = 0;
@@ -397,8 +402,11 @@ static const char *const usage[] =
                               Consider FILE to be infinitely new.\n"),
     N_("\
   --warn-undefined-variables  Warn when an undefined variable is referenced.\n"),
-    NULL
-  };
+    N_("\
+  -z [N], --cpu-pressure[=N]\n\
+                              Don't start multiple jobs unless cpu pressure is below N.\n"),
+  NULL
+ };
 
 /* Nonzero if the "--trace" option was given.  */
 
@@ -476,6 +484,8 @@ static const struct command_switch switches[] =
       "jobs" },
     { 'l', floating, &max_load_average, 1, 1, 0, &default_load_average,
       &default_load_average, "load-average" },
+    { 'z', floating, &max_cpu_pressure, 1, 1, 0, &default_cpu_pressure,
+      &default_cpu_pressure, "cpu-pressure(some)"},
     { 'o', filename, &old_files, 0, 0, 0, 0, 0, "old-file" },
     { 'O', string, &output_sync_option, 1, 1, 0, "target", 0, "output-sync" },
     { 'W', filename, &new_files, 0, 0, 0, 0, 0, "what-if" },

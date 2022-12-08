@@ -212,6 +212,14 @@ int getgid ();
 int getloadavg (double loadavg[], int nelem);
 #endif
 
+/* For /proc/pressure/cpu */
+#define HAVE_SYS_PSI 1
+#if HAVE_SYS_PSI
+time_t psi_prev_time = 0;
+/* This should be the actual minimum of time_t */
+double psi_prev_total = -1;
+#endif
+
 /* Different systems have different requirements for pid_t.
    Plus we have to support gettext string translation... Argh.  */
 static const char *
@@ -231,6 +239,7 @@ pid2str (pid_t pid)
 static void free_child (struct child *);
 static void start_job_command (struct child *child);
 static int load_too_high (void);
+static int cpu_pressure_too_high(void);
 static int job_next_command (struct child *);
 static int start_waiting_job (struct child *);
 
@@ -1623,8 +1632,10 @@ start_waiting_job (struct child *c)
 
   /* If we are running at least one job already and the load average
      is too high, make this one wait.  */
+  DB (DB_JOBS, ("Checking load and pressure \n"));
   if (!c->remote
       && ((job_slots_used > 0 && load_too_high ())
+      && cpu_pressure_too_high()
 #ifdef WINDOWS32
           || process_table_full ()
 #endif
@@ -2130,6 +2141,219 @@ load_too_high (void)
                 guess, load, max_load_average));
 
   return guess >= max_load_average;
+#endif
+}
+
+/* Determine if the cpu pressure on the system is too high to start a new job.
+
+  ! Rest of this comment needs to be rewritten !
+
+   On systems which provide /proc/loadavg (e.g., Linux), we use an idea
+   provided by Sven C. Dack <sven.c.dack@sky.com>: retrieve the current number
+   of runnable processes, if it's greater than the requested load we don't
+   allow another job to start.  We allow a job to start with equal processes
+   since one of those will be for make itself, which will then pause waiting
+   for jobs to clear.
+
+   If /proc/loadavg is not available for some reason, we obtain the system
+   load average and compare that.
+
+   The system load average is only recomputed once every N (N>=1) seconds.
+   However, a very parallel make can easily start tens or even hundreds of
+   jobs in a second, which brings the system to its knees for a while until
+   that first batch of jobs clears out.
+
+   To avoid this we use a weighted algorithm to try to account for jobs which
+   have been started since the last second, and guess what the load average
+   would be now if it were computed.
+
+   This algorithm was provided by Thomas Riedl <thomas.riedl@siemens.com>,
+   based on load average being recomputed once per second, which is
+   (apparently) how Solaris operates.  Linux recomputes only once every 5
+   seconds, but Linux is handled by the /proc/loadavg algorithm above.
+
+   Thomas writes:
+
+!      calculate something load-oid and add to the observed sys.load,
+!      so that latter can catch up:
+!      - every job started increases jobctr;
+!      - every dying job decreases a positive jobctr;
+!      - the jobctr value gets zeroed every change of seconds,
+!        after its value*weight_b is stored into the 'backlog' value last_sec
+!      - weight_a times the sum of jobctr and last_sec gets
+!        added to the observed sys.load.
+!
+!      The two weights have been tried out on 24 and 48 proc. Sun Solaris-9
+!      machines, using a several-thousand-jobs-mix of cpp, cc, cxx and smallish
+!      sub-shelled commands (rm, echo, sed...) for tests.
+!      lowering the 'direct influence' factor weight_a (e.g. to 0.1)
+!      resulted in significant excession of the load limit, raising it
+!      (e.g. to 0.5) took bad to small, fast-executing jobs and didn't
+!      reach the limit in most test cases.
+!
+!      lowering the 'history influence' weight_b (e.g. to 0.1) resulted in
+!      exceeding the limit for longer-running stuff (compile jobs in
+!      the .5 to 1.5 sec. range),raising it (e.g. to 0.5) overrepresented
+!      small jobs' effects.
+
+ */
+
+#define CPU_PRESSURE_WEIGHT_A           0.25
+#define CPU_PRESSURE_WEIGHT_B           0.25
+
+static int
+cpu_pressure_too_high (void)
+{
+#if defined(__MSDOS__) || defined(VMS) || defined(_AMIGA) || defined(__riscos__)
+  return 1;
+#else
+  #if 0
+  static double last_sec;
+  static time_t last_now;
+  #endif
+  static int proc_fd = -2;
+
+  #if 0
+  double pressure, guess;
+  #endif
+  time_t now;
+  int diff;
+
+DB (DB_JOBS, ("Enter cpu_pressure_too_high\n"));
+#ifdef WINDOWS32
+  /* sub_proc.c is limited in the number of objects it can wait for. */
+  if (process_table_full ())
+    return 1;
+#endif
+
+  if (max_cpu_pressure <= 0) {
+    DB (DB_JOBS, ("Exit cpu_pressure_too_high: 1\n"));
+    return 0;
+  }
+  /* If we haven't tried to open /proc/pressure/cpu, try now.  */
+#define CPU_PRESSURE "/proc/pressure/cpu"
+  if (proc_fd == -2)
+    {
+      EINTRLOOP (proc_fd, open (CPU_PRESSURE, O_RDONLY));
+      if (proc_fd < 0)
+        DB (DB_JOBS, ("Unable to use cpu pressure regulation.\n"));
+      else
+        {
+          DB (DB_JOBS, ("Using " CPU_PRESSURE " contention detection method.\n"));
+          fd_noinherit (proc_fd);
+        }
+    }
+
+  /* Try to read /proc/pressure/cpu if we managed to open it.  */
+  if (proc_fd >= 0)
+    {
+      int r;
+
+      EINTRLOOP (r, lseek (proc_fd, 0, SEEK_SET));
+      if (r >= 0)
+        {
+#define PROC_PRESSURE_CPU_SIZE 255
+/* 255 above is too large, calculate the exact value */
+          char psi[PROC_PRESSURE_CPU_SIZE+1];
+
+          EINTRLOOP (r, read (proc_fd, psi, PROC_PRESSURE_CPU_SIZE));
+          if (r >= 0)
+            {
+              const char *p;
+
+              /* The syntax of /proc/pressure/cpu is:
+                    some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+                    full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+                 The cpu pressure is considered too high !TBD! if there are more
+                 jobs running than the requested average.  */
+
+              /* Some Linux versions do not have both some and full cpu pressure
+                 We may have to deal with this */
+
+              psi[r] = '\0';
+              p = strchr (psi, 's');
+              if (p)
+                p = strchr (p+1, '=');
+              if (p)
+                p = strchr (p+1, '=');
+              if (p)
+                p = strchr (p+1, '=');
+              if (p)
+                p = strchr (p+1, '=');
+
+              if (p && ISDIGIT(p[1]))
+                {
+                  /* check when will total_s greater than 2^32 */
+                  unsigned int total_s = make_toui (p+1, NULL);
+                  now = time(NULL);
+                  diff = total_s - psi_prev_total;
+                  if (now - psi_prev_time >= 1)
+                    {
+                      DB (DB_JOBS, ("PSI: time interval between this run and last run is %g\n", difftime(now, psi_prev_time)));
+                      psi_prev_time = now;
+                      psi_prev_total = total_s;
+                    }
+                  DB (DB_JOBS, ("PSI: pressure diff = %d (max cpu pressure requested = %f)\n",
+                                diff, max_cpu_pressure));
+                  return diff > max_cpu_pressure;
+                }
+
+              DB (DB_JOBS, ("Failed to parse " CPU_PRESSURE ": %s\n", psi));
+            }
+        }
+
+      /* If we got here, something went wrong.  Give up on this method.  */
+      if (r < 0)
+        DB (DB_JOBS, ("Failed to read " CPU_PRESSURE ": %s\n", strerror (errno)));
+
+      close (proc_fd);
+      proc_fd = -1;
+    }
+#if 0
+  /* Find the real system load average.  */
+  errno = 0;
+  if (getloadavg (&load, 1) != 1)
+    {
+      static int lossage = -1;
+      /* Complain only once for the same error.  */
+      if (lossage == -1 || errno != lossage)
+        {
+          if (errno == 0)
+            /* An errno value of zero means getloadavg is just unsupported.  */
+            O (error, NILF,
+               _("cannot enforce load limits on this operating system"));
+          else
+            perror_with_name (_("cannot enforce load limit: "), "getloadavg");
+        }
+      lossage = errno;
+      load = 0;
+    }
+
+  /* If we're in a new second zero the counter and correct the backlog
+     value.  Only keep the backlog for one extra second; after that it's 0.  */
+  now = time (NULL);
+  if (last_now < now)
+    {
+      if (last_now == now - 1)
+        last_sec = LOAD_WEIGHT_B * job_counter;
+      else
+        last_sec = 0.0;
+
+      job_counter = 0;
+      last_now = now;
+    }
+
+  /* Try to guess what the load would be right now.  */
+  guess = load + (LOAD_WEIGHT_A * (job_counter + last_sec));
+
+  DB (DB_JOBS, ("Estimated system load = %f (actual = %f) (max requested = %f)\n",
+                guess, load, max_load_average));
+
+  return guess >= max_load_average;
+#else
+DB (DB_JOBS, ("Exit cpu_pressure_too_high: 2\n"));
+return 0;
+#endif
 #endif
 }
 

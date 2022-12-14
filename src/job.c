@@ -2297,18 +2297,20 @@ DB (DB_JOBS, ("Enter cpu_pressure_too_high\n"));
                   unsigned int total_s = make_toui (p+1, NULL);
                   clock_gettime(CLOCK_MONOTONIC, &tmp);
                   now = timespec_to_sec(&tmp);
-                  if (psi_prev_time < 0) {
+                  if (psi_prev_time < 0)
+                  {
                     DB (DB_JOBS, ("PSI: first time call, exceeds 0\n"));
                     psi_prev_time = now;
                     psi_prev_total = total_s;
                     return 0;
                   }
-                  if (total_s == psi_prev_total) {
+                  if (total_s == psi_prev_total)
+                  {
                     DB (DB_JOBS, ("PSI: pressure not updated yet, exceeds %d\n", pressure_exceeds_max));
                     return pressure_exceeds_max;
                   }
                   delta = now - psi_prev_time;
-                  diff = (delta <= 0.0) ? 0.0 : (total_s - psi_prev_total) / delta;
+                  diff = (delta <= 0.0) ? 0.0 : ((total_s - psi_prev_total) / delta) / 10000;
                   psi_prev_time = now;
                   psi_prev_total = total_s;
                   pressure_exceeds_max = (diff > max_cpu_pressure);

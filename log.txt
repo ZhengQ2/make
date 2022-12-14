@@ -1,0 +1,1158 @@
+Using jobserver controller fifo:/tmp/GMfifo72118
+Need a job token; we don't have children
+Checking load and pressure 
+Putting child 0x556814fba530 (all-recursive) PID 72121 on the chain.
+Live child 0x556814fba530 (all-recursive) PID 72121 
+Making all in lib
+Using jobserver controller fifo:/tmp/GMfifo72118
+Need a job token; we don't have children
+Checking load and pressure 
+mymake[1]: Entering directory '/home/zqiu/make/lib'
+sed -e 1h -e '1s,.*,/* DO NOT EDIT! GENERATED AUTOMATICALLY! */,' -e 1G \
+  -e 's|@''HAVE_ALLOCA_H''@|1|g' \
+  ./alloca.in.h > alloca.h-t
+Putting child 0x5581e32f3d20 (alloca.h) PID 72130 on the chain.
+Live child 0x5581e32f3d20 (alloca.h) PID 72130 
+Need a job token; we have children
+Live child 0x5581e32f3d20 (alloca.h) PID 72130 
+Obtained token for child 0x5581e32f4bb0 (stdbool.h).
+Checking load and pressure 
+Using /proc/loadavg load detection method.
+Running: system = 7 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+Using /proc/pressure/cpu contention detection method.
+PSI: first time call, exceeds 0
+sed -e 1h -e '1s,.*,/* DO NOT EDIT! GENERATED AUTOMATICALLY! */,' -e 1G \
+  -e 's/@''HAVE__BOOL''@/1/g' \
+  ./stdbool.in.h > stdbool.h-t
+Putting child 0x5581e32f4bb0 (stdbool.h) PID 72131 on the chain.
+Live child 0x5581e32f4bb0 (stdbool.h) PID 72131 
+Live child 0x5581e32f3d20 (alloca.h) PID 72130 
+Reaping winning child 0x5581e32f3d20 PID 72130 
+mv alloca.h-t alloca.h
+Live child 0x5581e32f4bb0 (stdbool.h) PID 72131 
+Live child 0x5581e32f3d20 (alloca.h) PID 72134 
+Reaping winning child 0x5581e32f4bb0 PID 72131 
+mv stdbool.h-t stdbool.h
+Live child 0x5581e32f4bb0 (stdbool.h) PID 72135 
+Live child 0x5581e32f3d20 (alloca.h) PID 72134 
+Reaping winning child 0x5581e32f3d20 PID 72134 
+Removing child 0x5581e32f3d20 PID 72134 from chain.
+Released token for child 0x5581e32f3d20 (alloca.h).
+Live child 0x5581e32f4bb0 (stdbool.h) PID 72135 
+Live child 0x5581e32f4bb0 (stdbool.h) PID 72135 
+Reaping winning child 0x5581e32f4bb0 PID 72135 
+Removing child 0x5581e32f4bb0 PID 72135 from chain.
+Need a job token; we don't have children
+Checking load and pressure 
+/home/zqiu/make/./../mymake  all-recursive
+Putting child 0x5581e32f6ae0 (all) PID 72136 on the chain.
+Live child 0x5581e32f6ae0 (all) PID 72136 
+Using jobserver controller fifo:/tmp/GMfifo72118
+Need a job token; we don't have children
+Checking load and pressure 
+mymake[2]: Entering directory '/home/zqiu/make/lib'
+Putting child 0x55d2c1bf1ee0 (all-recursive) PID 72137 on the chain.
+Live child 0x55d2c1bf1ee0 (all-recursive) PID 72137 
+Using jobserver controller fifo:/tmp/GMfifo72118
+Need a job token; we don't have children
+Checking load and pressure 
+mymake[3]: Entering directory '/home/zqiu/make/lib'
+gcc -DHAVE_CONFIG_H -I. -I../src     -Wno-cast-qual -Wno-conversion -Wno-float-equal -Wno-sign-compare -Wno-undef -Wno-unused-function -Wno-unused-parameter -Wno-float-conversion -Wimplicit-fallthrough -Wno-pedantic -Wno-sign-conversion -Wno-type-limits -Wno-unsuffixed-float-constants -g -O2 -MT libgnu_a-concat-filename.o -MD -MP -MF .deps/libgnu_a-concat-filename.Tpo -c -o libgnu_a-concat-filename.o `test -f 'concat-filename.c' || echo './'`concat-filename.c
+Putting child 0x55e84571ef80 (libgnu_a-concat-filename.o) PID 72146 on the chain.
+Live child 0x55e84571ef80 (libgnu_a-concat-filename.o) PID 72146 
+Need a job token; we have children
+Live child 0x55e84571ef80 (libgnu_a-concat-filename.o) PID 72146 
+Obtained token for child 0x55e84571b9c0 (libgnu_a-findprog-in.o).
+Checking load and pressure 
+Using /proc/loadavg load detection method.
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+Using /proc/pressure/cpu contention detection method.
+PSI: first time call, exceeds 0
+gcc -DHAVE_CONFIG_H -I. -I../src     -Wno-cast-qual -Wno-conversion -Wno-float-equal -Wno-sign-compare -Wno-undef -Wno-unused-function -Wno-unused-parameter -Wno-float-conversion -Wimplicit-fallthrough -Wno-pedantic -Wno-sign-conversion -Wno-type-limits -Wno-unsuffixed-float-constants -g -O2 -MT libgnu_a-findprog-in.o -MD -MP -MF .deps/libgnu_a-findprog-in.Tpo -c -o libgnu_a-findprog-in.o `test -f 'findprog-in.c' || echo './'`findprog-in.c
+Putting child 0x55e84571b9c0 (libgnu_a-findprog-in.o) PID 72147 on the chain.
+Live child 0x55e84571b9c0 (libgnu_a-findprog-in.o) PID 72147 
+Live child 0x55e84571ef80 (libgnu_a-concat-filename.o) PID 72146 
+Reaping winning child 0x55e84571ef80 PID 72146 
+mv -f .deps/libgnu_a-concat-filename.Tpo .deps/libgnu_a-concat-filename.Po
+Live child 0x55e84571b9c0 (libgnu_a-findprog-in.o) PID 72147 
+Live child 0x55e84571ef80 (libgnu_a-concat-filename.o) PID 72153 
+Reaping winning child 0x55e84571ef80 PID 72153 
+Removing child 0x55e84571ef80 PID 72153 from chain.
+Released token for child 0x55e84571ef80 (libgnu_a-concat-filename.o).
+Live child 0x55e84571b9c0 (libgnu_a-findprog-in.o) PID 72147 
+Live child 0x55e84571b9c0 (libgnu_a-findprog-in.o) PID 72147 
+Reaping winning child 0x55e84571b9c0 PID 72147 
+mv -f .deps/libgnu_a-findprog-in.Tpo .deps/libgnu_a-findprog-in.Po
+Live child 0x55e84571b9c0 (libgnu_a-findprog-in.o) PID 72155 
+Reaping winning child 0x55e84571b9c0 PID 72155 
+Removing child 0x55e84571b9c0 PID 72155 from chain.
+Need a job token; we don't have children
+Checking load and pressure 
+rm -f libgnu.a
+Putting child 0x55e84571b9c0 (libgnu.a) PID 72156 on the chain.
+Live child 0x55e84571b9c0 (libgnu.a) PID 72156 
+Reaping winning child 0x55e84571b9c0 PID 72156 
+ar cr libgnu.a libgnu_a-concat-filename.o libgnu_a-findprog-in.o    
+Live child 0x55e84571b9c0 (libgnu.a) PID 72157 
+Reaping winning child 0x55e84571b9c0 PID 72157 
+ranlib libgnu.a
+Live child 0x55e84571b9c0 (libgnu.a) PID 72158 
+Reaping winning child 0x55e84571b9c0 PID 72158 
+Removing child 0x55e84571b9c0 PID 72158 from chain.
+mymake[3]: Leaving directory '/home/zqiu/make/lib'
+Reaping winning child 0x55d2c1bf1ee0 PID 72137 
+Removing child 0x55d2c1bf1ee0 PID 72137 from chain.
+mymake[2]: Leaving directory '/home/zqiu/make/lib'
+Reaping winning child 0x5581e32f6ae0 PID 72136 
+Removing child 0x5581e32f6ae0 PID 72136 from chain.
+mymake[1]: Leaving directory '/home/zqiu/make/lib'
+Making all in po
+Using jobserver controller fifo:/tmp/GMfifo72118
+mymake[1]: Entering directory '/home/zqiu/make/po'
+mymake[1]: Nothing to be done for 'all'.
+mymake[1]: Leaving directory '/home/zqiu/make/po'
+Making all in doc
+Using jobserver controller fifo:/tmp/GMfifo72118
+mymake[1]: Entering directory '/home/zqiu/make/doc'
+mymake[1]: Nothing to be done for 'all'.
+mymake[1]: Leaving directory '/home/zqiu/make/doc'
+mymake[1]: Entering directory '/home/zqiu/make'
+Using jobserver controller fifo:/tmp/GMfifo72118
+Need a job token; we don't have children
+Checking load and pressure 
+Putting child 0x55f44e2fff30 (src/config.h) PID 72163 on the chain.
+Live child 0x55f44e2fff30 (src/config.h) PID 72163 
+Reaping winning child 0x55f44e2fff30 PID 72163 
+Live child 0x55f44e2fff30 (src/config.h) PID 72164 
+Reaping winning child 0x55f44e2fff30 PID 72164 
+Removing child 0x55f44e2fff30 PID 72164 from chain.
+Need a job token; we don't have children
+Checking load and pressure 
+depbase=`echo src/ar.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/ar.o -MD -MP -MF $depbase.Tpo -c -o src/ar.o src/ar.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3021e0 (src/ar.o) PID 72165 on the chain.
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Obtained token for child 0x55f44e23d410 (src/arscan.o).
+Checking load and pressure 
+Using /proc/loadavg load detection method.
+Running: system = 9 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+Using /proc/pressure/cpu contention detection method.
+PSI: first time call, exceeds 0
+depbase=`echo src/arscan.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/arscan.o -MD -MP -MF $depbase.Tpo -c -o src/arscan.o src/arscan.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e23d410 (src/arscan.o) PID 72166 on the chain.
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Obtained token for child 0x55f44e236130 (src/commands.o).
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 5 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e236d30 (src/default.o).
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 7 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 10 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e239e00 (src/dir.o).
+Checking load and pressure 
+Running: system = 11 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e23a830 (src/expand.o).
+Checking load and pressure 
+Running: system = 10 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e23ac70 (src/file.o).
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e378d70 (src/function.o).
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e37a870 (src/getopt.o).
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 7 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e37c390 (src/getopt1.o).
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e382020 (src/guile.o).
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e387cb0 (src/hash.o).
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e38dac0 (src/implicit.o).
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 5 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e353600 (src/job.o).
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e353ff0 (src/load.o).
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 5 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Obtained token for child 0x55f44e354a40 (src/loadapi.o).
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Checking load and pressure 
+Running: system = 8 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e3021e0 (src/ar.o) PID 72165 
+Reaping winning child 0x55f44e3021e0 PID 72165 
+Removing child 0x55f44e3021e0 PID 72165 from chain.
+Released token for child 0x55f44e3021e0 (src/ar.o).
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327985.585772, delta = 0.109831, pressure diff = 31839.956514 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3a6120 (src/main.o).
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e23d410 (src/arscan.o) PID 72166 
+Reaping winning child 0x55f44e23d410 PID 72166 
+Removing child 0x55f44e23d410 PID 72166 from chain.
+Released token for child 0x55f44e23d410 (src/arscan.o).
+Checking load and pressure 
+depbase=`echo src/main.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/main.o -MD -MP -MF $depbase.Tpo -c -o src/main.o src/main.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3a6120 (src/main.o) PID 72181 on the chain.
+Live child 0x55f44e3a6120 (src/main.o) PID 72181 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327985.622022, delta = 0.036250, pressure diff = 25682.471676 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e2af5a0 (src/misc.o).
+Checking load and pressure 
+Running: system = 7 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3a6120 (src/main.o) PID 72181 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3a6120 (src/main.o) PID 72181 
+Need a job token; we have children
+Live child 0x55f44e3a6120 (src/main.o) PID 72181 
+Live child 0x55f44e3a6120 (src/main.o) PID 72181 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e3a6120 (src/main.o) PID 72181 
+Reaping winning child 0x55f44e3a6120 PID 72181 
+Removing child 0x55f44e3a6120 PID 72181 from chain.
+Released token for child 0x55f44e3a6120 (src/main.o).
+Checking load and pressure 
+depbase=`echo src/misc.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/misc.o -MD -MP -MF $depbase.Tpo -c -o src/misc.o src/misc.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e2af5a0 (src/misc.o) PID 72191 on the chain.
+Live child 0x55f44e2af5a0 (src/misc.o) PID 72191 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327986.217186, delta = 0.595164, pressure diff = 3573.806272 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e2395b0 (src/output.o).
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e2af5a0 (src/misc.o) PID 72191 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e2af5a0 (src/misc.o) PID 72191 
+Need a job token; we have children
+Live child 0x55f44e2af5a0 (src/misc.o) PID 72191 
+Live child 0x55f44e2af5a0 (src/misc.o) PID 72191 
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e2af5a0 (src/misc.o) PID 72191 
+Reaping winning child 0x55f44e2af5a0 PID 72191 
+Removing child 0x55f44e2af5a0 PID 72191 from chain.
+Released token for child 0x55f44e2af5a0 (src/misc.o).
+Checking load and pressure 
+depbase=`echo src/output.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/output.o -MD -MP -MF $depbase.Tpo -c -o src/output.o src/output.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e2395b0 (src/output.o) PID 72211 on the chain.
+Live child 0x55f44e2395b0 (src/output.o) PID 72211 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327986.425755, delta = 0.208568, pressure diff = 14719.385818 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e240770 (src/read.o).
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e2395b0 (src/output.o) PID 72211 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e2395b0 (src/output.o) PID 72211 
+Need a job token; we have children
+Live child 0x55f44e2395b0 (src/output.o) PID 72211 
+Live child 0x55f44e2395b0 (src/output.o) PID 72211 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e2395b0 (src/output.o) PID 72211 
+Reaping winning child 0x55f44e2395b0 PID 72211 
+Removing child 0x55f44e2395b0 PID 72211 from chain.
+Released token for child 0x55f44e2395b0 (src/output.o).
+Checking load and pressure 
+depbase=`echo src/read.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/read.o -MD -MP -MF $depbase.Tpo -c -o src/read.o src/read.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e240770 (src/read.o) PID 72219 on the chain.
+Live child 0x55f44e240770 (src/read.o) PID 72219 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327986.594015, delta = 0.168261, pressure diff = 5277.519334 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e246570 (src/remake.o).
+Checking load and pressure 
+Running: system = 7 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e240770 (src/read.o) PID 72219 
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e240770 (src/read.o) PID 72219 
+Need a job token; we have children
+Live child 0x55f44e240770 (src/read.o) PID 72219 
+Live child 0x55f44e240770 (src/read.o) PID 72219 
+Checking load and pressure 
+Running: system = 8 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e240770 (src/read.o) PID 72219 
+Reaping winning child 0x55f44e240770 PID 72219 
+Removing child 0x55f44e240770 PID 72219 from chain.
+Released token for child 0x55f44e240770 (src/read.o).
+Checking load and pressure 
+depbase=`echo src/remake.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/remake.o -MD -MP -MF $depbase.Tpo -c -o src/remake.o src/remake.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e246570 (src/remake.o) PID 72239 on the chain.
+Live child 0x55f44e246570 (src/remake.o) PID 72239 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327987.316957, delta = 0.722942, pressure diff = 4424.977097 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e250720 (src/rule.o).
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e246570 (src/remake.o) PID 72239 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e246570 (src/remake.o) PID 72239 
+Need a job token; we have children
+Live child 0x55f44e246570 (src/remake.o) PID 72239 
+Live child 0x55f44e246570 (src/remake.o) PID 72239 
+Checking load and pressure 
+Running: system = 7 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e246570 (src/remake.o) PID 72239 
+Reaping winning child 0x55f44e246570 PID 72239 
+Removing child 0x55f44e246570 PID 72239 from chain.
+Released token for child 0x55f44e246570 (src/remake.o).
+Checking load and pressure 
+depbase=`echo src/rule.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/rule.o -MD -MP -MF $depbase.Tpo -c -o src/rule.o src/rule.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e250720 (src/rule.o) PID 72247 on the chain.
+Live child 0x55f44e250720 (src/rule.o) PID 72247 
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327987.762329, delta = 0.445372, pressure diff = 2903.192670 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3b6e40 (src/shuffle.o).
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e250720 (src/rule.o) PID 72247 
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e250720 (src/rule.o) PID 72247 
+Need a job token; we have children
+Live child 0x55f44e250720 (src/rule.o) PID 72247 
+Live child 0x55f44e250720 (src/rule.o) PID 72247 
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e250720 (src/rule.o) PID 72247 
+Reaping winning child 0x55f44e250720 PID 72247 
+Removing child 0x55f44e250720 PID 72247 from chain.
+Released token for child 0x55f44e250720 (src/rule.o).
+Checking load and pressure 
+depbase=`echo src/shuffle.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/shuffle.o -MD -MP -MF $depbase.Tpo -c -o src/shuffle.o src/shuffle.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3b6e40 (src/shuffle.o) PID 72260 on the chain.
+Live child 0x55f44e3b6e40 (src/shuffle.o) PID 72260 
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327987.970251, delta = 0.207922, pressure diff = 8445.471659 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3c7c90 (src/signame.o).
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3b6e40 (src/shuffle.o) PID 72260 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3b6e40 (src/shuffle.o) PID 72260 
+Need a job token; we have children
+Live child 0x55f44e3b6e40 (src/shuffle.o) PID 72260 
+Live child 0x55f44e3b6e40 (src/shuffle.o) PID 72260 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e3b6e40 (src/shuffle.o) PID 72260 
+Reaping winning child 0x55f44e3b6e40 PID 72260 
+Removing child 0x55f44e3b6e40 PID 72260 from chain.
+Released token for child 0x55f44e3b6e40 (src/shuffle.o).
+Checking load and pressure 
+depbase=`echo src/signame.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/signame.o -MD -MP -MF $depbase.Tpo -c -o src/signame.o src/signame.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3c7c90 (src/signame.o) PID 72268 on the chain.
+Live child 0x55f44e3c7c90 (src/signame.o) PID 72268 
+Checking load and pressure 
+Running: system = 2 / make = 1 (max requested = 2.000000)
+depbase=`echo src/loadapi.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/loadapi.o -MD -MP -MF $depbase.Tpo -c -o src/loadapi.o src/loadapi.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e354a40 (src/loadapi.o) PID 72269 on the chain.
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e3c7c90 (src/signame.o) PID 72268 
+Checking load and pressure 
+Running: system = 5 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.081193, delta = 0.110942, pressure diff = 6102.279268 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3c2490 (src/strcache.o).
+Checking load and pressure 
+Running: system = 5 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e3c7c90 (src/signame.o) PID 72268 
+Checking load and pressure 
+Running: system = 6 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e3c7c90 (src/signame.o) PID 72268 
+Need a job token; we have children
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e3c7c90 (src/signame.o) PID 72268 
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e3c7c90 (src/signame.o) PID 72268 
+Checking load and pressure 
+Running: system = 9 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e3c7c90 (src/signame.o) PID 72268 
+Reaping winning child 0x55f44e3c7c90 PID 72268 
+Removing child 0x55f44e3c7c90 PID 72268 from chain.
+Released token for child 0x55f44e3c7c90 (src/signame.o).
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.134886, delta = 0.053693, pressure diff = 18177.393351 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3c7f50 (src/variable.o).
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Need a job token; we have children
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e354a40 (src/loadapi.o) PID 72269 
+Reaping winning child 0x55f44e354a40 PID 72269 
+Removing child 0x55f44e354a40 PID 72269 from chain.
+Released token for child 0x55f44e354a40 (src/loadapi.o).
+Checking load and pressure 
+depbase=`echo src/variable.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/variable.o -MD -MP -MF $depbase.Tpo -c -o src/variable.o src/variable.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3c7f50 (src/variable.o) PID 72284 on the chain.
+Live child 0x55f44e3c7f50 (src/variable.o) PID 72284 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.151773, delta = 0.016886, pressure diff = 17055.098525 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e23d030 (src/version.o).
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3c7f50 (src/variable.o) PID 72284 
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3c7f50 (src/variable.o) PID 72284 
+Need a job token; we have children
+Live child 0x55f44e3c7f50 (src/variable.o) PID 72284 
+Live child 0x55f44e3c7f50 (src/variable.o) PID 72284 
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e3c7f50 (src/variable.o) PID 72284 
+Reaping winning child 0x55f44e3c7f50 PID 72284 
+Removing child 0x55f44e3c7f50 PID 72284 from chain.
+Released token for child 0x55f44e3c7f50 (src/variable.o).
+Checking load and pressure 
+depbase=`echo src/version.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/version.o -MD -MP -MF $depbase.Tpo -c -o src/version.o src/version.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e23d030 (src/version.o) PID 72292 on the chain.
+Live child 0x55f44e23d030 (src/version.o) PID 72292 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.512121, delta = 0.360349, pressure diff = 6787.868490 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3a0600 (src/vpath.o).
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d030 (src/version.o) PID 72292 
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e23d030 (src/version.o) PID 72292 
+Need a job token; we have children
+Live child 0x55f44e23d030 (src/version.o) PID 72292 
+Live child 0x55f44e23d030 (src/version.o) PID 72292 
+Checking load and pressure 
+Running: system = 8 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e23d030 (src/version.o) PID 72292 
+Reaping winning child 0x55f44e23d030 PID 72292 
+Removing child 0x55f44e23d030 PID 72292 from chain.
+Released token for child 0x55f44e23d030 (src/version.o).
+Checking load and pressure 
+depbase=`echo src/vpath.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/vpath.o -MD -MP -MF $depbase.Tpo -c -o src/vpath.o src/vpath.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3a0600 (src/vpath.o) PID 72300 on the chain.
+Live child 0x55f44e3a0600 (src/vpath.o) PID 72300 
+Checking load and pressure 
+Running: system = 5 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.528747, delta = 0.016625, pressure diff = 39758.458624 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3d5960 (src/posixos.o).
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3a0600 (src/vpath.o) PID 72300 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3a0600 (src/vpath.o) PID 72300 
+Need a job token; we have children
+Live child 0x55f44e3a0600 (src/vpath.o) PID 72300 
+Live child 0x55f44e3a0600 (src/vpath.o) PID 72300 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Need a job token; we have children
+Live child 0x55f44e3a0600 (src/vpath.o) PID 72300 
+Reaping winning child 0x55f44e3a0600 PID 72300 
+Removing child 0x55f44e3a0600 PID 72300 from chain.
+Released token for child 0x55f44e3a0600 (src/vpath.o).
+Checking load and pressure 
+depbase=`echo src/posixos.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/posixos.o -MD -MP -MF $depbase.Tpo -c -o src/posixos.o src/posixos.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3d5960 (src/posixos.o) PID 72308 on the chain.
+Live child 0x55f44e3d5960 (src/posixos.o) PID 72308 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.677555, delta = 0.148808, pressure diff = 11195.606807 (max cpu pressure requested = 20.000000), exceeds 1
+Obtained token for child 0x55f44e3bcc60 (src/remote-stub.o).
+Checking load and pressure 
+Running: system = 7 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3d5960 (src/posixos.o) PID 72308 
+Checking load and pressure 
+Running: system = 7 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pressure not updated yet, exceeds 1
+Live child 0x55f44e3d5960 (src/posixos.o) PID 72308 
+Reaping winning child 0x55f44e3d5960 PID 72308 
+Removing child 0x55f44e3d5960 PID 72308 from chain.
+Released token for child 0x55f44e3d5960 (src/posixos.o).
+Checking load and pressure 
+depbase=`echo src/remote-stub.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/remote-stub.o -MD -MP -MF $depbase.Tpo -c -o src/remote-stub.o src/remote-stub.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3bcc60 (src/remote-stub.o) PID 72316 on the chain.
+Live child 0x55f44e3bcc60 (src/remote-stub.o) PID 72316 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.877996, delta = 0.200441, pressure diff = 5433.013034 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e3bcc60 (src/remote-stub.o) PID 72316 
+Reaping winning child 0x55f44e3bcc60 PID 72316 
+Removing child 0x55f44e3bcc60 PID 72316 from chain.
+Released token for child 0x55f44e3bcc60 (src/remote-stub.o).
+Checking load and pressure 
+depbase=`echo src/strcache.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/strcache.o -MD -MP -MF $depbase.Tpo -c -o src/strcache.o src/strcache.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e3c2490 (src/strcache.o) PID 72324 on the chain.
+Live child 0x55f44e3c2490 (src/strcache.o) PID 72324 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327988.940316, delta = 0.062320, pressure diff = 13302.321322 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e3c2490 (src/strcache.o) PID 72324 
+Reaping winning child 0x55f44e3c2490 PID 72324 
+Removing child 0x55f44e3c2490 PID 72324 from chain.
+Released token for child 0x55f44e3c2490 (src/strcache.o).
+Checking load and pressure 
+depbase=`echo src/load.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/load.o -MD -MP -MF $depbase.Tpo -c -o src/load.o src/load.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e353ff0 (src/load.o) PID 72332 on the chain.
+Live child 0x55f44e353ff0 (src/load.o) PID 72332 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327989.058844, delta = 0.118528, pressure diff = 9356.422805 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e353ff0 (src/load.o) PID 72332 
+Reaping winning child 0x55f44e353ff0 PID 72332 
+Removing child 0x55f44e353ff0 PID 72332 from chain.
+Released token for child 0x55f44e353ff0 (src/load.o).
+Checking load and pressure 
+depbase=`echo src/job.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/job.o -MD -MP -MF $depbase.Tpo -c -o src/job.o src/job.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e353600 (src/job.o) PID 72340 on the chain.
+Live child 0x55f44e353600 (src/job.o) PID 72340 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327989.161970, delta = 0.103126, pressure diff = 11995.040551 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e353600 (src/job.o) PID 72340 
+Reaping winning child 0x55f44e353600 PID 72340 
+Removing child 0x55f44e353600 PID 72340 from chain.
+Released token for child 0x55f44e353600 (src/job.o).
+Checking load and pressure 
+depbase=`echo src/implicit.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/implicit.o -MD -MP -MF $depbase.Tpo -c -o src/implicit.o src/implicit.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e38dac0 (src/implicit.o) PID 72348 on the chain.
+Live child 0x55f44e38dac0 (src/implicit.o) PID 72348 
+Checking load and pressure 
+Running: system = 6 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327989.680978, delta = 0.519008, pressure diff = 4339.050300 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e38dac0 (src/implicit.o) PID 72348 
+Reaping winning child 0x55f44e38dac0 PID 72348 
+Removing child 0x55f44e38dac0 PID 72348 from chain.
+Released token for child 0x55f44e38dac0 (src/implicit.o).
+Checking load and pressure 
+depbase=`echo src/hash.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/hash.o -MD -MP -MF $depbase.Tpo -c -o src/hash.o src/hash.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e387cb0 (src/hash.o) PID 72356 on the chain.
+Live child 0x55f44e387cb0 (src/hash.o) PID 72356 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327990.046690, delta = 0.365712, pressure diff = 8900.455525 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e387cb0 (src/hash.o) PID 72356 
+Reaping winning child 0x55f44e387cb0 PID 72356 
+Removing child 0x55f44e387cb0 PID 72356 from chain.
+Released token for child 0x55f44e387cb0 (src/hash.o).
+Checking load and pressure 
+depbase=`echo src/guile.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/guile.o -MD -MP -MF $depbase.Tpo -c -o src/guile.o src/guile.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e382020 (src/guile.o) PID 72364 on the chain.
+Live child 0x55f44e382020 (src/guile.o) PID 72364 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327990.224375, delta = 0.177685, pressure diff = 12026.869185 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e382020 (src/guile.o) PID 72364 
+Reaping winning child 0x55f44e382020 PID 72364 
+Removing child 0x55f44e382020 PID 72364 from chain.
+Released token for child 0x55f44e382020 (src/guile.o).
+Checking load and pressure 
+depbase=`echo src/getopt1.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/getopt1.o -MD -MP -MF $depbase.Tpo -c -o src/getopt1.o src/getopt1.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e37c390 (src/getopt1.o) PID 72372 on the chain.
+Live child 0x55f44e37c390 (src/getopt1.o) PID 72372 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327990.280337, delta = 0.055962, pressure diff = 28465.917059 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e37c390 (src/getopt1.o) PID 72372 
+Reaping winning child 0x55f44e37c390 PID 72372 
+Removing child 0x55f44e37c390 PID 72372 from chain.
+Released token for child 0x55f44e37c390 (src/getopt1.o).
+Checking load and pressure 
+depbase=`echo src/getopt.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/getopt.o -MD -MP -MF $depbase.Tpo -c -o src/getopt.o src/getopt.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e37a870 (src/getopt.o) PID 72380 on the chain.
+Live child 0x55f44e37a870 (src/getopt.o) PID 72380 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327990.305605, delta = 0.025269, pressure diff = 78001.906915 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e37a870 (src/getopt.o) PID 72380 
+Reaping winning child 0x55f44e37a870 PID 72380 
+Removing child 0x55f44e37a870 PID 72380 from chain.
+Released token for child 0x55f44e37a870 (src/getopt.o).
+Checking load and pressure 
+depbase=`echo src/function.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/function.o -MD -MP -MF $depbase.Tpo -c -o src/function.o src/function.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e378d70 (src/function.o) PID 72388 on the chain.
+Live child 0x55f44e378d70 (src/function.o) PID 72388 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327990.328498, delta = 0.022892, pressure diff = 52637.802608 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e378d70 (src/function.o) PID 72388 
+Reaping winning child 0x55f44e378d70 PID 72388 
+Removing child 0x55f44e378d70 PID 72388 from chain.
+Released token for child 0x55f44e378d70 (src/function.o).
+Checking load and pressure 
+depbase=`echo src/file.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/file.o -MD -MP -MF $depbase.Tpo -c -o src/file.o src/file.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e23ac70 (src/file.o) PID 72412 on the chain.
+Live child 0x55f44e23ac70 (src/file.o) PID 72412 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327990.894615, delta = 0.566117, pressure diff = 6966.753276 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e23ac70 (src/file.o) PID 72412 
+Reaping winning child 0x55f44e23ac70 PID 72412 
+Removing child 0x55f44e23ac70 PID 72412 from chain.
+Released token for child 0x55f44e23ac70 (src/file.o).
+Checking load and pressure 
+depbase=`echo src/expand.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/expand.o -MD -MP -MF $depbase.Tpo -c -o src/expand.o src/expand.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e23a830 (src/expand.o) PID 72420 on the chain.
+Live child 0x55f44e23a830 (src/expand.o) PID 72420 
+Checking load and pressure 
+Running: system = 4 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327991.226955, delta = 0.332340, pressure diff = 7564.533504 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e23a830 (src/expand.o) PID 72420 
+Reaping winning child 0x55f44e23a830 PID 72420 
+Removing child 0x55f44e23a830 PID 72420 from chain.
+Released token for child 0x55f44e23a830 (src/expand.o).
+Checking load and pressure 
+depbase=`echo src/dir.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/dir.o -MD -MP -MF $depbase.Tpo -c -o src/dir.o src/dir.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e239e00 (src/dir.o) PID 72428 on the chain.
+Live child 0x55f44e239e00 (src/dir.o) PID 72428 
+Checking load and pressure 
+Running: system = 2 / make = 1 (max requested = 2.000000)
+depbase=`echo src/default.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/default.o -MD -MP -MF $depbase.Tpo -c -o src/default.o src/default.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e236d30 (src/default.o) PID 72429 on the chain.
+Live child 0x55f44e236d30 (src/default.o) PID 72429 
+Live child 0x55f44e239e00 (src/dir.o) PID 72428 
+Checking load and pressure 
+Running: system = 4 / make = 2 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327991.398272, delta = 0.171316, pressure diff = 13548.044172 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e236d30 (src/default.o) PID 72429 
+Live child 0x55f44e239e00 (src/dir.o) PID 72428 
+Reaping winning child 0x55f44e236d30 PID 72429 
+Removing child 0x55f44e236d30 PID 72429 from chain.
+Released token for child 0x55f44e236d30 (src/default.o).
+Live child 0x55f44e239e00 (src/dir.o) PID 72428 
+Live child 0x55f44e239e00 (src/dir.o) PID 72428 
+Checking load and pressure 
+Running: system = 3 / make = 1 (max requested = 2.000000)
+Enter cpu_pressure_too_high
+PSI: pid = 72161, now = 327991.524865, delta = 0.126593, pressure diff = 31162.779758 (max cpu pressure requested = 20.000000), exceeds 1
+Live child 0x55f44e239e00 (src/dir.o) PID 72428 
+Reaping winning child 0x55f44e239e00 PID 72428 
+Removing child 0x55f44e239e00 PID 72428 from chain.
+Released token for child 0x55f44e239e00 (src/dir.o).
+Checking load and pressure 
+depbase=`echo src/commands.o | sed 's|[^/]*$|.deps/&|;s|\.o$||'`;\
+gcc -DHAVE_CONFIG_H   -Isrc -I./src -Ilib -I./lib -DLIBDIR=\"/usr/local/lib\" -DLOCALEDIR=\"/usr/local/share/locale\"   -DMAKE_MAINTAINER_MODE   -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -MT src/commands.o -MD -MP -MF $depbase.Tpo -c -o src/commands.o src/commands.c &&\
+mv -f $depbase.Tpo $depbase.Po
+Putting child 0x55f44e236130 (src/commands.o) PID 72444 on the chain.
+Live child 0x55f44e236130 (src/commands.o) PID 72444 
+Reaping winning child 0x55f44e236130 PID 72444 
+Removing child 0x55f44e236130 PID 72444 from chain.
+Need a job token; we don't have children
+Checking load and pressure 
+Putting child 0x55f44e382020 (make) PID 72452 on the chain.
+Live child 0x55f44e382020 (make) PID 72452 
+Reaping winning child 0x55f44e382020 PID 72452 
+gcc  -C -Wall -Wextra -Werror -Wwrite-strings -Wshadow -Wdeclaration-after-statement -Wbad-function-cast -Wformat-security -Wtype-limits -Wunused-but-set-parameter -Wlogical-op -Wpointer-arith -Wignored-qualifiers -Wformat-signedness -Wduplicated-cond -g -O2 -Wl,--export-dynamic  -o make src/ar.o src/arscan.o src/commands.o src/default.o src/dir.o src/expand.o src/file.o src/function.o src/getopt.o src/getopt1.o src/guile.o src/hash.o src/implicit.o src/job.o src/load.o src/loadapi.o src/main.o src/misc.o src/output.o src/read.o src/remake.o src/rule.o src/shuffle.o src/signame.o src/strcache.o src/variable.o src/version.o src/vpath.o  src/posixos.o  src/remote-stub.o   lib/libgnu.a   
+Live child 0x55f44e382020 (make) PID 72453 
+Reaping winning child 0x55f44e382020 PID 72453 
+Removing child 0x55f44e382020 PID 72453 from chain.
+mymake[1]: Leaving directory '/home/zqiu/make'
+Reaping winning child 0x556814fba530 PID 72121 
+Removing child 0x556814fba530 PID 72121 from chain.
+Acquired all 15 jobserver tokens.

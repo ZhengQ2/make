@@ -18,6 +18,8 @@ this program.  If not, see <https://www.gnu.org/licenses/>.  */
 
 #include <assert.h>
 #include <string.h>
+#include <time.h>
+#include <unistd.h>
 
 #include "job.h"
 #include "debug.h"
@@ -215,9 +217,10 @@ int getloadavg (double loadavg[], int nelem);
 /* For /proc/pressure/cpu */
 #define HAVE_SYS_PSI 1
 #if HAVE_SYS_PSI
-time_t psi_prev_time = 0;
+double psi_prev_time = -1.0;
 /* This should be the actual minimum of time_t */
 double psi_prev_total = -1;
+int pressure_exceeds_max = 1;
 #endif
 
 /* Different systems have different requirements for pid_t.
@@ -2144,6 +2147,12 @@ load_too_high (void)
 #endif
 }
 
+/* helper for cpu pressure */
+double timespec_to_sec(struct timespec *ts)
+{
+    return (double)ts->tv_sec + (double)ts->tv_nsec / 1000000000.0;
+}
+
 /* Determine if the cpu pressure on the system is too high to start a new job.
 
   ! Rest of this comment needs to be rewritten !
@@ -2216,8 +2225,9 @@ cpu_pressure_too_high (void)
   #if 0
   double pressure, guess;
   #endif
-  time_t now;
-  int diff;
+  double now, diff;
+  struct timespec tmp;
+  double delta;
 
 DB (DB_JOBS, ("Enter cpu_pressure_too_high\n"));
 #ifdef WINDOWS32
@@ -2285,26 +2295,35 @@ DB (DB_JOBS, ("Enter cpu_pressure_too_high\n"));
                 {
                   /* check when will total_s greater than 2^32 */
                   unsigned int total_s = make_toui (p+1, NULL);
-                  now = time(NULL);
-                  diff = total_s - psi_prev_total;
-                  if (now - psi_prev_time >= 1)
-                    {
-                      DB (DB_JOBS, ("PSI: time interval between this run and last run is %g\n", difftime(now, psi_prev_time)));
-                      psi_prev_time = now;
-                      psi_prev_total = total_s;
-                    }
-                  DB (DB_JOBS, ("PSI: pressure diff = %d (max cpu pressure requested = %f)\n",
-                                diff, max_cpu_pressure));
-                  return diff > max_cpu_pressure;
+                  clock_gettime(CLOCK_MONOTONIC, &tmp);
+                  now = timespec_to_sec(&tmp);
+                  if (psi_prev_time < 0) {
+                    DB (DB_JOBS, ("PSI: first time call, exceeds 0\n"));
+                    psi_prev_time = now;
+                    psi_prev_total = total_s;
+                    return 0;
+                  }
+                  if (total_s == psi_prev_total) {
+                    DB (DB_JOBS, ("PSI: pressure not updated yet, exceeds %d\n", pressure_exceeds_max));
+                    return pressure_exceeds_max;
+                  }
+                  delta = now - psi_prev_time;
+                  diff = (delta <= 0.0) ? 0.0 : (total_s - psi_prev_total) / delta;
+                  psi_prev_time = now;
+                  psi_prev_total = total_s;
+                  pressure_exceeds_max = (diff > max_cpu_pressure);
+                  DB (DB_JOBS, ("PSI: pid = %d, now = %f, delta = %f, pressure diff = %f (max cpu pressure requested = %f), exceeds %d\n",
+                                getpid(), now, delta, diff, max_cpu_pressure, pressure_exceeds_max));
+                  return pressure_exceeds_max;
                 }
 
-              DB (DB_JOBS, ("Failed to parse " CPU_PRESSURE ": %s\n", psi));
+              DB (DB_JOBS, ("Failed to parse \" CPU_PRESSURE \": %s\n", psi));
             }
         }
 
       /* If we got here, something went wrong.  Give up on this method.  */
       if (r < 0)
-        DB (DB_JOBS, ("Failed to read " CPU_PRESSURE ": %s\n", strerror (errno)));
+        DB (DB_JOBS, ("Failed to read \" CPU_PRESSURE \": %s\n", strerror (errno)));
 
       close (proc_fd);
       proc_fd = -1;

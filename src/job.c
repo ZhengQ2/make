@@ -212,6 +212,15 @@ int getgid ();
 int getloadavg (double loadavg[], int nelem);
 #endif
 
+/* For /proc/pressure/cpu */
+#define HAVE_SYS_PSI 1
+#if HAVE_SYS_PSI
+double psi_prev_time = -1.0;
+/* This should be the actual minimum of time_t */
+double psi_prev_total = -1;
+int pressure_exceeds_max = 0;
+#endif
+
 /* Different systems have different requirements for pid_t.
    Plus we have to support gettext string translation... Argh.  */
 static const char *
@@ -231,6 +240,7 @@ pid2str (pid_t pid)
 static void free_child (struct child *);
 static void start_job_command (struct child *child);
 static int load_too_high (void);
+static int cpu_pressure_too_high(void);
 static int job_next_command (struct child *);
 static int start_waiting_job (struct child *);
 
@@ -1623,8 +1633,9 @@ start_waiting_job (struct child *c)
 
   /* If we are running at least one job already and the load average
      is too high, make this one wait.  */
+  DB (DB_JOBS, ("Checking load and pressure \n"));
   if (!c->remote
-      && ((job_slots_used > 0 && load_too_high ())
+      && ((job_slots_used > 0 && (cpu_pressure_too_high() || load_too_high ()))
 #ifdef WINDOWS32
           || process_table_full ()
 #endif
@@ -2130,6 +2141,197 @@ load_too_high (void)
                 guess, load, max_load_average));
 
   return guess >= max_load_average;
+#endif
+}
+
+/* helper for cpu pressure */
+double timespec_to_sec(struct timespec *ts)
+{
+    return (double)ts->tv_sec + (double)ts->tv_nsec / 1000000000.0;
+}
+
+/* Determine if the cpu pressure on the system is too high to start a new job.
+   
+   On Linux, we use the /proc/pressure/cpu data, to calculate the task increase
+   since the last update, divided by the time elapse since last update, if the 
+   current pressure haven't been updated since last function call, we instead 
+   take the result from last update. 
+
+   If this is the first time this function has been called, it means the build
+   just started, so we allow all the tasks to run for one function call, after
+   that if the pressure haven't been updated by the kernel, we will reject all
+   the tasks being initialized until the next update.
+
+ */
+
+#define CPU_PRESSURE_WEIGHT_A           0.25
+#define CPU_PRESSURE_WEIGHT_B           0.25
+
+static int
+cpu_pressure_too_high (void)
+{
+#if defined(__MSDOS__) || defined(VMS) || defined(_AMIGA) || defined(__riscos__)
+  return 1;
+#else
+  #if 0
+  static double last_sec;
+  static time_t last_now;
+  #endif
+  static int proc_fd = -2;
+
+  #if 0
+  double pressure, guess;
+  #endif
+  double now, diff;
+  struct timespec tmp;
+  double delta;
+
+DB (DB_JOBS, ("Enter cpu_pressure_too_high\n"));
+#ifdef WINDOWS32
+  /* sub_proc.c is limited in the number of objects it can wait for. */
+  if (process_table_full ())
+    return 1;
+#endif
+
+  if (max_cpu_pressure <= 0) {
+    DB (DB_JOBS, ("Exit cpu_pressure_too_high: 1\n"));
+    return 0;
+  }
+  /* If we haven't tried to open /proc/pressure/cpu, try now.  */
+#define CPU_PRESSURE "/proc/pressure/cpu"
+  if (proc_fd == -2)
+    {
+      EINTRLOOP (proc_fd, open (CPU_PRESSURE, O_RDONLY));
+      if (proc_fd < 0)
+        DB (DB_JOBS, ("Unable to use cpu pressure regulation.\n"));
+      else
+        {
+          DB (DB_JOBS, ("Using " CPU_PRESSURE " contention detection method.\n"));
+          fd_noinherit (proc_fd);
+        }
+    }
+
+  /* Try to read /proc/pressure/cpu if we managed to open it.  */
+  if (proc_fd >= 0)
+    {
+      int r;
+
+      EINTRLOOP (r, lseek (proc_fd, 0, SEEK_SET));
+      if (r >= 0)
+        {
+#define PROC_PRESSURE_CPU_SIZE 255
+/* 255 above is too large, calculate the exact value */
+          char psi[PROC_PRESSURE_CPU_SIZE+1];
+
+          EINTRLOOP (r, read (proc_fd, psi, PROC_PRESSURE_CPU_SIZE));
+          if (r >= 0)
+            {
+              const char *p;
+
+              /* The syntax of /proc/pressure/cpu is:
+                    some avg10=0.00 avg60=0.00 avg300=0.00 total=0
+                    full avg10=0.00 avg60=0.00 avg300=0.00 total=0
+                 The cpu pressure is considered too high !TBD! if there are more
+                 jobs running than the requested average.  */
+
+              /* Some Linux versions do not have both some and full cpu pressure
+                 We may have to deal with this */
+
+              psi[r] = '\0';
+              p = strchr (psi, 's');
+              if (p)
+                p = strchr (p+1, '=');
+              if (p)
+                p = strchr (p+1, '=');
+              if (p)
+                p = strchr (p+1, '=');
+              if (p)
+                p = strchr (p+1, '=');
+
+              if (p && ISDIGIT(p[1]))
+                {
+                  /* check when will total_s greater than 2^32 */
+                  unsigned int total_s = make_toui (p+1, NULL);
+                  clock_gettime(CLOCK_MONOTONIC, &tmp);
+                  now = timespec_to_sec(&tmp);
+                  if (psi_prev_time < 0)
+                  {
+                    DB (DB_JOBS, ("PSI: first time call, exceeds 0\n"));
+                    psi_prev_time = now;
+                    psi_prev_total = total_s;
+                    return 0;
+                  }
+                  if (total_s == psi_prev_total)
+                  {
+                    DB (DB_JOBS, ("PSI: pressure not updated yet, exceeds %d\n", pressure_exceeds_max));
+                    return pressure_exceeds_max;
+                  }
+                  delta = now - psi_prev_time;
+                  diff = (delta <= 0.0) ? 0.0 : ((total_s - psi_prev_total) / delta) / 10000;
+                  psi_prev_time = now;
+                  psi_prev_total = total_s;
+                  pressure_exceeds_max = (diff > max_cpu_pressure);
+                  DB (DB_JOBS, ("PSI: pid = %d, now = %f, delta = %f, pressure diff = %f (max cpu pressure requested = %f), exceeds %d\n",
+                                getpid(), now, delta, diff, max_cpu_pressure, pressure_exceeds_max));
+                  return pressure_exceeds_max;
+                }
+
+              DB (DB_JOBS, ("Failed to parse \" CPU_PRESSURE \": %s\n", psi));
+            }
+        }
+
+      /* If we got here, something went wrong.  Give up on this method.  */
+      if (r < 0)
+        DB (DB_JOBS, ("Failed to read \" CPU_PRESSURE \": %s\n", strerror (errno)));
+
+      close (proc_fd);
+      proc_fd = -1;
+    }
+#if 0
+  /* Find the real system load average.  */
+  errno = 0;
+  if (getloadavg (&load, 1) != 1)
+    {
+      static int lossage = -1;
+      /* Complain only once for the same error.  */
+      if (lossage == -1 || errno != lossage)
+        {
+          if (errno == 0)
+            /* An errno value of zero means getloadavg is just unsupported.  */
+            O (error, NILF,
+               _("cannot enforce load limits on this operating system"));
+          else
+            perror_with_name (_("cannot enforce load limit: "), "getloadavg");
+        }
+      lossage = errno;
+      load = 0;
+    }
+
+  /* If we're in a new second zero the counter and correct the backlog
+     value.  Only keep the backlog for one extra second; after that it's 0.  */
+  now = time (NULL);
+  if (last_now < now)
+    {
+      if (last_now == now - 1)
+        last_sec = LOAD_WEIGHT_B * job_counter;
+      else
+        last_sec = 0.0;
+
+      job_counter = 0;
+      last_now = now;
+    }
+
+  /* Try to guess what the load would be right now.  */
+  guess = load + (LOAD_WEIGHT_A * (job_counter + last_sec));
+
+  DB (DB_JOBS, ("Estimated system load = %f (actual = %f) (max requested = %f)\n",
+                guess, load, max_load_average));
+
+  return guess >= max_load_average;
+#else
+DB (DB_JOBS, ("Exit cpu_pressure_too_high: 2\n"));
+return 0;
+#endif
 #endif
 }
 
